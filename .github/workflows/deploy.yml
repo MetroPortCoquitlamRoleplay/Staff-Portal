@@ -17,9 +17,3 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: .
-          publish_branch: gh-pages
-```
-
-The issue was the `${{ secrets.GITHUB_TOKEN }}` line — the curly braces can sometimes be parsed incorrectly depending on the editor or copy method. Make sure when you paste it that line reads exactly:
-```
-github_token: ${{ secrets.GITHUB_TOKEN }}
