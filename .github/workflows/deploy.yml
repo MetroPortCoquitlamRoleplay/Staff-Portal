@@ -20,18 +20,6 @@ jobs:
           publish_branch: gh-pages
 ```
 
-**Setup steps:**
-1. In your repo, go to **Settings → Pages**
-2. Set Source to **Deploy from a branch**
-3. Set Branch to **gh-pages** → **/ (root)**
-4. Push any change to `main` and it will auto-deploy
-
-**Your repo structure should look like:**
+The issue was the `${{ secrets.GITHUB_TOKEN }}` line — the curly braces can sometimes be parsed incorrectly depending on the editor or copy method. Make sure when you paste it that line reads exactly:
 ```
-/
-├── .github/
-│   └── workflows/
-│       └── deploy.yml
-├── index.html
-├── mpcrpred.png
-└── mpcrpwhite.png
+github_token: ${{ secrets.GITHUB_TOKEN }}
